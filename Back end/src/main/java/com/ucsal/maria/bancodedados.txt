@@ -1,0 +1,25 @@
+# ===============================
+# CONFIGURAÇÕES DO POSTGRESQL
+# ===============================
+spring.datasource.url=jdbc:postgresql://localhost:5432/educaplus
+spring.datasource.username=postgres
+spring.datasource.password=sua_senha_aqui
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ===============================
+# CONFIGURAÇÕES DO HIBERNATE / JPA
+# ===============================
+# Atualiza o esquema do banco automaticamente com base nos Models
+spring.jpa.hibernate.ddl-auto=update
+
+# Mostra as queries SQL no console (ótimo para depurar na hora de apresentar)
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+# Dialeto do banco de dados
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# ===============================
+# CONFIGURAÇÕES DO SERVIDOR
+# ===============================
+server.port=8080
