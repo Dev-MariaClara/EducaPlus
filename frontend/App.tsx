@@ -318,10 +318,13 @@ export default function App() {
           { id: 'home', icon: Home, label: 'Minhas Turmas' },
           { id: 'diario', icon: CheckSquare, label: 'Diário de Turma' },
         ];
-      case 'Aluno':
+        case 'Aluno':
         return [
-          { id: 'home', icon: Award, label: 'Painel do Estudante' },
+          { id: 'home', icon: Home, label: 'Painel do Estudante' },
+          { id: 'historico', icon: History, label: 'Histórico Acadêmico' },
           { id: 'tarefas', icon: CheckSquare, label: 'Minhas Tarefas' },
+          { id: 'materiais', icon: FileIcon, label: 'Materiais de Aula' },
+          { id: 'mensagens', icon: Mail, label: 'Mensagens Internas' },
         ];
       case 'Responsavel':
         return [
