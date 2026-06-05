@@ -22,4 +22,6 @@ public class GestorDTO {
 
     @NotBlank(message = "O cargo do gestor é obrigatório")
     private String cargo;
+    @NotBlank(message = "A senha é obrigatória")
+    private String senha;
 }

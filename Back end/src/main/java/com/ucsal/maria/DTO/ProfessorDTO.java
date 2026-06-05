@@ -22,4 +22,6 @@ public class ProfessorDTO {
 
     @NotBlank(message = "O registro (CREF/Registro Interno) é obrigatório")
     private String registro;
+    @NotBlank(message = "A senha é obrigatória")
+    private String senha;
 }

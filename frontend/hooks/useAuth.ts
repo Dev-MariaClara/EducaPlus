@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PerfilAcesso } from '../types/Usuario';
+import { PerfilAcesso } from '../types/UsuarioBase';
 
 export function useAuth() {
   const [userRole, setUserRole] = useState<PerfilAcesso | null>(null);

@@ -22,4 +22,6 @@ public class ResponsavelDTO {
 
     @NotBlank(message = "O grau de parentesco é obrigatório")
     private String parentesco;
+    @NotBlank(message = "A senha é obrigatória")
+    private String senha;
 }

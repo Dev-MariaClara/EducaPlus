@@ -1,13 +1,14 @@
 import React from 'react';
 import { GraduationCap, BarChart as BarChartIcon, BookOpen, Users } from 'lucide-react';
 import { RoleButton } from '../components/common/RoleButton';
-import { PerfilAcesso } from '../types/Usuario';
+import { PerfilAcesso } from '../types/UsuarioBase';
 
 interface LoginProps {
   onLogin: (role: PerfilAcesso) => void;
+  goToRegister: () => void;
 }
 
-export function Login({ onLogin }: LoginProps) {
+export function Login({ onLogin, goToRegister }: LoginProps) {
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 md:p-8 relative overflow-hidden">
       {/* Background Decorations */}

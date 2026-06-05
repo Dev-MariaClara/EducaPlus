@@ -3,7 +3,7 @@ package com.ucsal.maria.service;
 import com.ucsal.maria.DTO.AlunoDTO;
 import com.ucsal.maria.DTO.AvaliacaoDTO;
 import com.ucsal.maria.model.Aluno;
-import com.ucsal.maria.model.Avaliacao; // Certifique-se de importar a entidade Avaliacao
+import com.ucsal.maria.model.Avaliacao;
 import com.ucsal.maria.repository.AlunoRepository;
 import com.ucsal.maria.repository.AvaliacaoRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -75,16 +75,20 @@ public class AlunoService {
         // Verifica se o aluno existe antes de buscar as notas
         buscarPorId(alunoId);
         return avaliacaoRepository.findByAlunoId(alunoId).stream()
-                .map(this::converterAvaliacaoParaDTO) // CORREÇÃO: Mapeia cada Avaliacao para AvaliacaoDTO
+                .map(this::converterAvaliacaoParaDTO)
                 .collect(Collectors.toList());
     }
 
-    // Métodos utilitários de conversão (podem ser substituídos por MapStruct no futuro)
+    // Métodos utilitários de conversão
     private Aluno converterParaEntidade(AlunoDTO dto) {
         Aluno aluno = new Aluno();
         aluno.setNome(dto.getNome());
         aluno.setEmail(dto.getEmail());
         aluno.setMatricula(dto.getMatricula());
+
+        // AQUI ESTÁ A ALTERAÇÃO: Pegando a senha do DTO e colocando na Entidade!
+        aluno.setSenha(dto.getSenha());
+
         return aluno;
     }
 
@@ -97,12 +101,11 @@ public class AlunoService {
         return dto;
     }
 
-    // CORREÇÃO: Novo método utilitário para converter Avaliacao em AvaliacaoDTO
+    // Método utilitário para converter Avaliacao em AvaliacaoDTO
     private AvaliacaoDTO converterAvaliacaoParaDTO(Avaliacao avaliacao) {
         AvaliacaoDTO dto = new AvaliacaoDTO();
         dto.setId(avaliacao.getId());
-        dto.setNota(avaliacao.getNota()); // Ajuste estes métodos se os atributos na sua classe forem diferentes
-        // dto.setDescricao(avaliacao.getDescricao());
+        dto.setNota(avaliacao.getNota());
         return dto;
     }
 }
