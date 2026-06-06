@@ -101,6 +101,10 @@ public class ProfessorService {
         prof.setNome(dto.getNome());
         prof.setEmail(dto.getEmail());
         prof.setRegistro(dto.getRegistro());
+
+        // A resolução do conflito acontece aqui. Agora a senha é repassada.
+        prof.setSenha(dto.getSenha());
+
         return prof;
     }
 
